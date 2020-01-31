@@ -154,8 +154,8 @@ arr.reduce(callback( accumulator, currentValue[, index[, array]] )[, initialValu
 */
 const zooPopulation = []
 zooAnimals.forEach(function(item){
-  
-  zooPopulation.push(`${parseInt(item.population)}`);
+  popInt = parseInt(item.population);
+  zooPopulation.push(popInt);
 })
 const populationTotal = zooPopulation.reduce(function(accumulator, item){
   return accumulator + item;
