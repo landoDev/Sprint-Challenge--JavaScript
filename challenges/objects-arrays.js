@@ -71,7 +71,7 @@ const graduates = [
 Once you have the new array created, sort the universities alphabetically and log the result. */
 
 const universities = [];
-graduates.forEach(function(item){ 
+graduates.forEach((item) => { 
   universities.push(`${item.university}`)
 })
 console.log(universities);
@@ -84,7 +84,7 @@ The resulting contact information strings should have a space between the first 
 Log the result of your new array. */
 const contactInfo = [];
 function getContact(graduates){
-  graduates.forEach(function(item) {
+  graduates.forEach((item) => {
     contactInfo.push(`${item.first_name}, ${item.email}`)
   })
 }
@@ -93,7 +93,12 @@ console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
 //let newArray = arr.filter(callback(element[, index[, array]])[, thisArg])
-const unisWithUni = universities.filter("Uni");
+const unisWithUni = []
+universities.forEach(function(item){
+  if(item.includes("Uni")){
+    unisWithUni.push(item);
+  }
+})
 console.log(unisWithUni);
 
 
@@ -120,7 +125,7 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
-zooAnimals.forEach(function(item){
+zooAnimals.forEach((item) => {
   displayNames.push(`Name: ${item.animal_name}, Scientific: ${item.scientific_name}`)
 })
 console.log(displayNames);
@@ -134,7 +139,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
     // return element for new_array
 //}[, thisArg])
 
-const lowCaseAnimalNames = zooAnimals.map(function(item){
+const lowCaseAnimalNames = zooAnimals.map((item) => {
   return `${item.animal_name.toLowerCase()}`;
 })
 console.log(lowCaseAnimalNames);
@@ -153,11 +158,11 @@ The zoos need to know their total animal population across the United States. Fi
 arr.reduce(callback( accumulator, currentValue[, index[, array]] )[, initialValue])
 */
 const zooPopulation = []
-zooAnimals.forEach(function(item){
+zooAnimals.forEach((item)=> {
   popInt = parseInt(item.population);
   zooPopulation.push(popInt);
 })
-const populationTotal = zooPopulation.reduce(function(accumulator, item){
+const populationTotal = zooPopulation.reduce((accumulator, item)=> {
   return accumulator + item;
 }, 0);
 console.log(populationTotal);
